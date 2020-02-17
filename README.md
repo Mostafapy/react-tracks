@@ -10,6 +10,11 @@ Create a virtual environment to install dependencies in and activate it:
 - $ python3 -m venv env
 - $ source env/bin/activate
 
+For Windows Users:
+- $ python3 -m venv env
+- Note add this command to settings.json file ""terminal.integrated.shellArgs.windows": ["-ExecutionPolicy", "RemoteSigned"]"
+- $ env/Scripts/activate
+
 Then install the dependencies:
 (env)$ pip install -r requirements.txt
 
