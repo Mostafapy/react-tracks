@@ -9,13 +9,21 @@ class TrackType(DjangoObjectType):
         """Adding meta class that overides the Track model"""
         model = Track
 
+class LikeType(DjangoObjectType):
+    class Meta:
+        model = Like
 class Query(graphene.ObjectType):
     """Class of query Type to list all tracks"""
     tracks = graphene.List(TrackType)
+    likes = graphene.List(LikeType)
 
     def resolve_tracks(self, info):
         """ Returns list of track objects"""
         return Track.objects.all()
+
+    def resolve_likes(self, info):
+        """ Returns list of like objects"""
+        return Like.objects.all()
 
 class CreateTrack(graphene.Mutation):
     track = graphene.Field(TrackType)
