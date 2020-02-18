@@ -6,7 +6,6 @@ class UserType(DjangoObjectType):
     class Meta:
         model = get_user_model()
 
-
 class CreateUser(graphene.Mutation):
     user = graphene.Field(UserType)
 
@@ -15,16 +14,14 @@ class CreateUser(graphene.Mutation):
         password = graphene.String(required=True)
         email = graphene.String(required=True)
 
-def mutate(self, info, username, password, email):
-    user = get_user_model(
-        username = username,
-        emaail = email
-    )
+    def mutate(self, info, username, password, email):
+       user = get_user_model()(username = username, email = email)
 
-    user.set_password(password)
+       user.set_password(password)
 
-    user.save()
-
+       user.save()
+       
+       return CreateUser(user=user)
 
 class Mutation(graphene.ObjectType):
     create_user = CreateUser.Field()
