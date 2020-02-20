@@ -120,7 +120,7 @@ dmypy.json
 .pyre/
 
 # dependencies
-/react-tracks-client/node_modules
+/app/react-tracks-client/node_modules
 /.pnp
 .pnp.js
 
@@ -141,5 +141,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/react-tracks-client/package-lock.json
-/react-tracks-client/yarn-lock.json
+/app/react-tracks-client/package-lock.json
+/app/react-tracks-client/yarn-lock.json
